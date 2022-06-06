@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "D5qNe9gAUQHHPpUuTPsNyAOb9+aq4l+6kgfokvPEAFjxScLj54siLQi8pMpgU/xkoSeOQQJcDB+GfgnfcGVE8Q==",
+  "dgSpecHash": "30ly7Ks6Wn7ownDqEOMgxHDC6fALjiCb+ragV84e3X2vTlvjdJniRGqN+gp+RaKkA3im4sWNuXOI63VQM7fnqw==",
   "success": true,
   "projectFilePath": "/Users/brendanbaker/Documents/gitHub/04-PokemonReviewApp/PokemonReviewApp/PokemonReviewApp.csproj",
   "expectedPackageFiles": [
+    "/Users/brendanbaker/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/Users/brendanbaker/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/Users/brendanbaker/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
-    "/Users/brendanbaker/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/Users/brendanbaker/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/brendanbaker/.nuget/packages/microsoft.data.sqlclient/2.1.4/microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "/Users/brendanbaker/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "/Users/brendanbaker/.nuget/packages/microsoft.entityframeworkcore/6.0.5/microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
