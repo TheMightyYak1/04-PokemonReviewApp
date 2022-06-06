@@ -50,7 +50,7 @@ public class ReviewerController : Controller
         if(!_reviewerRepository.ReviewerExists(reviewerId))
         return NotFound();
 
-        var reviews = _mapper.Map<List<ReviewerDto>>(
+        var reviews = _mapper.Map<List<ReviewDto>>(
             _reviewerRepository.GetReviewsByReviewer(reviewerId));
 
         if(!ModelState.IsValid)
