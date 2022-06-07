@@ -11,6 +11,16 @@ public class CategoryRepository : ICategoryRepository
         return _context.Categories.Any(c => c.Id == id);
     }
 
+    public bool CreateCategory(Category category)
+    {
+        // change tracker
+        // add, updating, modifying,
+        // connected vs disconnected
+        // EntityState.Added = disconnected state
+        _context.Add(category);
+        return Save();
+    }
+
     public ICollection<Category> GetCategories()
     {
         return _context.Categories.ToList();
@@ -26,4 +36,15 @@ public class CategoryRepository : ICategoryRepository
         return _context.PokemonCategories.Where(e => e.CategoryId == categoryId).Select(c => c.Pokemon).ToList();
     }
 
+    public bool Save()
+    {
+        var saved = _context.SaveChanges(); // SQL is generated to be sent to database
+        return saved > 0 ? true : false;
+    }
+
+    public bool UpdateCategory(Category category)
+    {
+        _context.Update(category);
+        return Save();
+    }
 }

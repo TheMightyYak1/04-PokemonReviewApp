@@ -15,6 +15,11 @@ public class ReviewerRepository : IReviewerRepository
     {
         return _context.Reviewers.Where(r => r.Id == reviewerId).Include(e => e.Reviews).FirstOrDefault();
     }
+    public bool CreateReviewer(Reviewer reviewer)
+    {
+        _context.Add(reviewer);
+        return Save();
+    }
 
     public ICollection<Reviewer> GetReviewers()
     {
@@ -28,5 +33,15 @@ public class ReviewerRepository : IReviewerRepository
     public bool ReviewerExists(int reviewerId)
     {
         return _context.Reviewers.Any(r => r.Id == reviewerId);
+    }
+    public bool Save()
+    {
+        var saved = _context.SaveChanges();
+        return saved > 0 ? true : false;
+    }
+    public bool UpdateReviewer(Reviewer reviewer)
+    {
+        _context.Update(reviewer);
+        return Save();
     }
 }
