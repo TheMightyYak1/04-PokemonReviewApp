@@ -118,4 +118,29 @@ public class CountryController : Controller
         return NoContent();
     }
 
+    [HttpDelete("{countryId}")]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(404)]
+    public IActionResult DeleteCountry(int countryId)
+    {
+        if(!_countryRepository.CountryExists(countryId))
+            return NotFound();
+        
+        var countryToDelete = _countryRepository.GetCountry(countryId);
+
+         // can check for data depending on other data in prod
+         // if(_categoryRepository.GetPokemonByCategory(categoryId).)
+
+        if(!ModelState.IsValid)
+            return BadRequest(ModelState);
+        
+        if(!_countryRepository.DeleteCountry(countryToDelete))
+        {
+            ModelState.AddModelError("", "Something went wrong deleting country");
+        }
+
+        return NoContent();
+    }
+
 }

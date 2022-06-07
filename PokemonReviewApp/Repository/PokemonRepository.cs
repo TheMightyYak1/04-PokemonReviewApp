@@ -38,6 +38,12 @@ public class PokemonRepository : IPokemonRepository
         return Save();
     }
 
+    public bool DeletePokemon(Pokemon pokemon)
+    {
+        _context.Remove(pokemon);
+        return Save();
+    }
+
     public Pokemon GetPokemon(string name)
     {
         return _context.Pokemon.Where(p => p.Name == name).FirstOrDefault();

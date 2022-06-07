@@ -142,6 +142,30 @@ public class OwnerController : Controller
 
         return NoContent();
     }
+    [HttpDelete("{ownerId}")]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(404)]
+    public IActionResult DeleteOwner(int ownerId)
+    {
+        if(!_ownerRepository.OwnerExists(ownerId))
+            return NotFound();
+        
+        var ownerToDelete = _ownerRepository.GetOwner(ownerId);
+
+         // can check for data depending on other data in prod i.e. if an owner owns a pokemon
+         // if(_categoryRepository.GetPokemonByCategory(categoryId).)
+
+        if(!ModelState.IsValid)
+            return BadRequest(ModelState);
+        
+        if(!_ownerRepository.DeleteOwner(ownerToDelete))
+        {
+            ModelState.AddModelError("", "Something went wrong deleting owner");
+        }
+
+        return NoContent();
+    }
 
 
 }

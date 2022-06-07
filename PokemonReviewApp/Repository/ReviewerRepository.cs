@@ -21,6 +21,12 @@ public class ReviewerRepository : IReviewerRepository
         return Save();
     }
 
+    public bool DeleteReviewer(Reviewer reviewer)
+    {
+        _context.Remove(reviewer);
+        return Save();
+    }
+
     public ICollection<Reviewer> GetReviewers()
     {
         return _context.Reviewers.ToList();

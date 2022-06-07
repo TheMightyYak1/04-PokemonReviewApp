@@ -16,6 +16,12 @@ public class OwnerRepository : IOwnerRepository
         return Save();
     }
 
+    public bool DeleteOwner(Owner owner)
+    {
+        _context.Remove(owner);
+        return Save();
+    }
+
     public ICollection<Owner> GetOwnerOfAPokemon(int pokeId)
     {
         return _context.PokemonOwners.Where(p => p.Pokemon.Id == pokeId).Select(o => o.Owner).ToList();
